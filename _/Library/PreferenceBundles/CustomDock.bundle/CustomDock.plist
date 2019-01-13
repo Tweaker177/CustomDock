@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>alignment</key>
+			<integer>2</integer>
+			<key>cell</key>
+			<string>PSTitleValueCell</string>
+			<key>height</key>
+			<integer>48</integer>
+			<key>icon</key>
+			<string>CustomDock@2x.png</string>
+			<key>label</key>
+			<string>Custom (simple) Dock</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Turns on the tweak. Other settings won't work unless this switch is on.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.customdock</string>
+	<key>PostNotification</key>
+		<string>com.i0stweak3r.customdock/settingschanged</string>
+			<key>key</key>
+			<string>Enabled</string>
+			<key>label</key>
+			<string>Enable tweak</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Adjust dock position with slider. Double-tap either of slider's side edges to enter manually. Negative values raise dock higher on the screen, positive values lower or hide it. Around 18.0 = icons sitting on bottom edge, 80.0 = hidden dock, just dots showing.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSliderCell</string>
+			<key>default</key>
+			<real>0.0</real>
+			<key>defaults</key>
+			<string>com.i0stweak3r.customdock</string>
+	<key>PostNotification</key>
+			<string>com.i0stweak3r.customdock/settingschanged</string>
+			<key>key</key>
+			<string>dockPercent</string>
+			<key>max</key>
+			<integer>80</integer>
+			<key>min</key>
+			<integer>-50</integer>
+			<key>showValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Adjust dock opacity with the slider. The lower the number the more transparent it'll be.</string>
+		</dict>
+		<dict>
+			
+			<key>cell</key>
+			<string>PSSliderCell</string>
+			<key>default</key>
+			<integer>100</integer>
+			<key>defaults</key>
+			<string>com.i0stweak3r.customdock</string>
+<key>PostNotification</key>
+			<string>com.i0stweak3r.customdock/settingschanged</string>
+			<key>key</key>
+			<string>opacityVal</string>
+			<key>max</key>
+			<integer>100</integer>
+			<key>min</key>
+			<integer>0</integer>
+			<key>showValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSTextCell</string>
+			<key>label</key>
+			<string>Made by i0s_tweak3r. </string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>twitterlink</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>icon</key>
+			<string>twitter@2x.png</string>
+			<key>label</key>
+			<string>Developer twitter</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>donate</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>icon</key>
+			<string>paypal.png</string>
+			<key>label</key>
+			<string>Show some love.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSTextCell</string>
+			<key>label</key>
+			<string>More improvements coming soon.</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>Custom Dock</string>
+</dict>
+</plist>

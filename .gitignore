@@ -1,0 +1,7 @@
+.deb
+.DS_Store
+AnimatedTweak.xm
+-/
+obj/
+.theos
+packages/
