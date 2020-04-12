@@ -1,6 +1,6 @@
-ARCHS = armv7 arm64 arm64e armv7s
+ARCHS = arm64 arm64e armv7 armv7s
 TARGET = iphone:clang:11.2:8.0
-include theos/makefiles/common.mk
+include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = CustomDock
 CustomDock_FILES = CustomDock.mm
