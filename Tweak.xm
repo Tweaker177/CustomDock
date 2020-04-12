@@ -13,7 +13,8 @@ static double kdockPercent;
 static double kopacityVal;
 static double trans;
 static float dockheightfrac;
-
+static CGFloat kDockHeight;
+static bool kDockHeightEnabled;
 
 
 %hook SBRootFolderView
@@ -54,6 +55,21 @@ return %orig(arg1);
 }
 %end
 
+
+%hook SBDockView 
+-(CGFloat)dockHeight {
+screenHeight= [[UIScreen mainScreen]bounds].size.height;
+screenWidth = [[UIScreen mainScreen]bounds].size.width;
+//Changing dock height instead of its offscreen fraction- has an effect on icon placement/ bounds.
+//Only using it in portrait orientation since it could be vertical or horizontal depending on tweaks used.
+if(kEnabled && kDockHeightEnabled &&(screenHeight>screenWidth)) {
+return kDockHeight;
+}
+else { return %orig; }
+}
+%end
+
+
 static void
 loadPrefs() {
     static NSUserDefaults *prefs = [[NSUserDefaults alloc]
@@ -65,7 +81,10 @@ kdockPercent= [[prefs objectForKey:@"dockPercent"] doubleValue];
 
 kopacityVal = [[prefs objectForKey:@"opacityVal"] doubleValue];
 
+kDockHeightEnabled = [prefs boolForKey:@"dockHeightEnabled"];
 
+kDockHeight = [[prefs objectForKey:@"dockHeight"] floatValue] ? [[prefs objectForKey:@"dockHeight"]floatValue] : 96.f;
+ 
 }
 
 %ctor {
