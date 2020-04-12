@@ -3,7 +3,7 @@ Name: CustomDock
 Depends: mobilesubstrate, preferenceloader
 Version: 1.0.2
 Architecture: iphoneos-arm
-Description: Simple tweak with sliders to adjust dock height, offset of icons inside, and opacity. All devices supported. Tested on 9.3.3, 10.0.1 11.1.2 and 11.3.1
+Description: Simple tweak with sliders to adjust dock height, offset of icons inside, and opacity. All devices supported except iPad. Tested on 9.3.3, 10.0.1 11.1.2 and 11.3.1 12.4 and 13.2.2
 Maintainer: i0s_tweak3r
 Author: i0s_tweak3r
 Section: Tweaks
