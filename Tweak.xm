@@ -6,9 +6,14 @@
 @"private/var/mobile/Library/Preferences/com.i0stweak3r.customdock.plist"
 */
 
+const CGFloat firmware =  [[UIDevice currentDevice].systemVersion floatValue];
+//Simple way to detect firmware
+
+
+
 static bool kEnabled= YES;
 static double kdockPercent;
-static double kopacityVal;
+static double kOpacityVal;
 static double trans;
 static float dockheightfrac;
 static CGFloat kDockHeight;
@@ -16,6 +21,39 @@ static bool kDockHeightEnabled;
 
 
 %hook SBRootFolderView
+//Several updated methods for iOS 13
+
+-(UIEdgeInsets)_statusBarInsetsForDockEdge:(unsigned long long)arg1 dockOffscreenPercentage:(double)arg2 {
+    if(kEnabled && (firmware >= 13.0)) {
+        dockheightfrac= kdockPercent / 100;
+        arg2= dockheightfrac;
+        return %orig(arg1,arg2);
+    }
+    return %orig;
+}
+
+-(double)currentDockOffscreenFraction {
+    if(kEnabled && (firmware >=13.0)) {
+        dockheightfrac= kdockPercent / 100;
+        return dockheightfrac;
+    }
+    return %orig;
+}
+
+
+
+-(void)setDockOffscreenFraction:(double)arg1 {
+
+if(kEnabled) {
+
+dockheightfrac= kdockPercent / 100;
+arg1= dockheightfrac;
+return %orig(arg1);
+}
+return %orig;
+}
+
+
 -(void)_setDockOffscreenFraction:(double)arg1 {
 if(!kEnabled) {
     return %orig;
@@ -47,14 +85,27 @@ return %orig(arg1);
 {  
 return %orig;
 }
-trans= kopacityVal/100;
+trans= kOpacityVal/100;
 
 arg1= trans;
 return %orig(arg1);
 }
 %end
 
-//Changing dock height instead of its offscreen fraction- has an effect on icon placement/ bounds.
+//NEW IOS 13 CLASS ACTUALLY A PROTOCOL
+%hook SBDockOffscreenFractionModifying
+-(void)setDockOffscreenFraction:(double)arg1 {
+if(kEnabled && (firmware >= 13.0)) {
+    dockheightfrac= kdockPercent / 100;
+    arg1= dockheightfrac;
+    return %orig(arg1);
+}
+return %orig;
+}
+%end
+
+
+//Changing dock height instead of its offscreen fraction- has an effect on icon placement/ blur bounds.
 //Only using it in portrait orientation since it could be vertical or horizontal depending on tweaks used.
 
 %hook SBDockView 
@@ -81,7 +132,7 @@ loadPrefs() {
 //Default is off so no need to use objectForKey
 kdockPercent= [[prefs objectForKey:@"dockPercent"] doubleValue];
 //default here is zero so no need to check if there's a value first;
-kopacityVal = [[prefs objectForKey:@"opacityVal"] doubleValue] ? [[prefs objectForKey:@"opacityVal"] doubleValue] : 100.f;
+kOpacityVal = [[prefs objectForKey:@"opacityVal"] doubleValue] ? [[prefs objectForKey:@"opacityVal"] doubleValue] : 100.f;
 //Makes sure default is 100
 
 kDockHeightEnabled = [prefs boolForKey:@"dockHeightEnabled"];
