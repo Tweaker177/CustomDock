@@ -66,6 +66,54 @@
 			<key>showValue</key>
 			<true/>
 		</dict>
+
+	<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Allows changing the actual height instead of just the offscreen amount. Only works in Portrait orientation.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.i0stweak3r.customdock</string>
+	<key>PostNotification</key>
+		<string>com.i0stweak3r.customdock/settingschanged</string>
+			<key>key</key>
+			<string>dockHeightEnabled</string>
+			<key>label</key>
+			<string>Enable dock height</string>
+		</dict>
+
+                
+                <dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Adjust dock height with slider. This method changes the actual height and bounds of the dock in Portrait orientation only.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSliderCell</string>
+			<key>default</key>
+			<real>96.0</real>
+			<key>defaults</key>
+			<string>com.i0stweak3r.customdock</string>
+	<key>PostNotification</key>
+			<string>com.i0stweak3r.customdock/settingschanged</string>
+			<key>key</key>
+			<string>dockHeight</string>
+			<key>max</key>
+			<integer>180</integer>
+			<key>min</key>
+			<real>0.000001</real>
+			<key>showValue</key>
+			<true/>
+		</dict>
+
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
