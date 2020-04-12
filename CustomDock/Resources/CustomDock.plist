@@ -46,6 +46,31 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>footerText</key>
+			<string>Adjust dock opacity with the slider. The lower the number the more transparent it'll be.</string>
+		</dict>
+		<dict>
+			
+			<key>cell</key>
+			<string>PSSliderCell</string>
+			<key>default</key>
+			<integer>100</integer>
+			<key>defaults</key>
+			<string>com.i0stweak3r.customdock</string>
+<key>PostNotification</key>
+			<string>com.i0stweak3r.customdock/settingschanged</string>
+			<key>key</key>
+			<string>opacityVal</string>
+			<key>max</key>
+			<integer>100</integer>
+			<key>min</key>
+			<integer>0</integer>
+			<key>showValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
 			<string>Adjust dock position with slider. Double-tap either of slider's side edges to enter manually. Negative values raise dock higher on the screen, positive values lower or hide it. Around 18.0 = icons sitting on bottom edge, 80.0 = hidden dock, just dots showing.</string>
 		</dict>
 		<dict>
@@ -93,7 +118,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>footerText</key>
-			<string>Adjust dock height with slider. This method changes the actual height and bounds of the dock in Portrait orientation only.</string>
+			<string>Adjust dock height with slider. This method changes the actual height and bounds of the dock when horizontal (Portrait mainly unless a tweak is used for landscape).</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -114,31 +139,7 @@
 			<true/>
 		</dict>
 
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
-			<key>footerText</key>
-			<string>Adjust dock opacity with the slider. The lower the number the more transparent it'll be.</string>
-		</dict>
-		<dict>
-			
-			<key>cell</key>
-			<string>PSSliderCell</string>
-			<key>default</key>
-			<integer>100</integer>
-			<key>defaults</key>
-			<string>com.i0stweak3r.customdock</string>
-<key>PostNotification</key>
-			<string>com.i0stweak3r.customdock/settingschanged</string>
-			<key>key</key>
-			<string>opacityVal</string>
-			<key>max</key>
-			<integer>100</integer>
-			<key>min</key>
-			<integer>0</integer>
-			<key>showValue</key>
-			<true/>
-		</dict>
+		
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
