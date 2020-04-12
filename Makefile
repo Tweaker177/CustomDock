@@ -1,9 +1,10 @@
-ARCHS = armv7 arm64 arm64e armv7s
+ARCHS = arm64 arm64e armv7 armv7s
 TARGET = iphone:clang:11.2:8.0
 #CFLAGS = -fobjc-arc
 #THEOS_PACKAGE_DIR_NAME = debs
-
-include theos/makefiles/common.mk
+GO_EASY_ON_ME = 1
+DEBUG = 0
+include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = CustomDock
 CustomDock_FILES = Tweak.xm
