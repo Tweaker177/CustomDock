@@ -59,10 +59,10 @@ return %orig(arg1);
 
 %hook SBDockView 
 -(CGFloat)dockHeight {
-if(!kEnabled) return %orig;
+if(!kEnabled || !kDockHeightEnabled) return %orig;
 //return original value if tweak is off before taking up memory for variables and checks
-screenHeight= [[UIScreen mainScreen]bounds].size.height;
-screenWidth = [[UIScreen mainScreen]bounds].size.width;
+CGFloat screenHeight= [[UIScreen mainScreen]bounds].size.height;
+CGFloat screenWidth = [[UIScreen mainScreen]bounds].size.width;
 
 if(kDockHeightEnabled && (screenHeight>screenWidth)) {
 return kDockHeight;
